@@ -1,5 +1,6 @@
 # renovate: datasource=custom.debianLinuxRelease
 name           = "debian-12-template"
+vmid           = "1006"
 iso_file       = "debian-12.15.0-amd64-netinst.iso"
 iso_url        = "https://cdimage.debian.org/mirror/cdimage/archive/12.15.0/amd64/iso-cd/debian-12.15.0-amd64-netinst.iso"
 iso_checksum   = "file:https://cdimage.debian.org/mirror/cdimage/archive/12.15.0/amd64/iso-cd/SHA256SUMS"

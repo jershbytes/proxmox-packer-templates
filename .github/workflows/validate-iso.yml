@@ -1,0 +1,58 @@
+name: Validate ISO URLs and Checksums
+on:
+  pull_request:
+    paths:
+      - '*.pkrvars.hcl'
+
+jobs:
+  validate-iso:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v47
+        with:
+          files: |
+            *.pkrvars.hcl
+
+      - name: Validate ISO URLs and checksums
+        if: steps.changed-files.outputs.any_changed == 'true'
+        env:
+          CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        run: |
+          set -euo pipefail
+
+          fail() {
+            echo "ERROR: $1"
+            exit 1
+          }
+
+          extract() {
+            local file="$1"
+            local key="$2"
+            awk -v key="$key" -F'"' '$1 ~ "^"key"[[:space:]]*=" {print $2; exit}' "$file"
+          }
+
+          for file in $CHANGED_FILES; do
+            iso_file=$(extract "$file" "iso_file")
+            iso_url=$(extract "$file" "iso_url")
+            iso_checksum=$(extract "$file" "iso_checksum")
+
+            if [ -z "$iso_url" ]; then
+              echo "SKIP: missing iso_url in $file"
+              continue
+            fi
+
+            curl -sfIL --max-time 10 "$iso_url" >/dev/null || fail "iso_url not reachable in $file"
+
+            if [[ "$iso_checksum" == file:* ]]; then
+              checksum_url="${iso_checksum#file:}"
+              curl -sfIL --max-time 10 "$checksum_url" >/dev/null || fail "iso_checksum URL not reachable in $file"
+              curl -sfL --max-time 10 "$checksum_url" | grep -Fq "$iso_file" || fail "iso_file not listed in checksum file in $file"
+            fi
+          done

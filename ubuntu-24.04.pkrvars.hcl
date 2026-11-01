@@ -1,5 +1,6 @@
 # renovate: datasource=custom.ubuntuLinuxRelease
 name           = "ubuntu-24.04-template"
+vmid           = "1016"
 iso_file       = "ubuntu-24.04.2-live-server-amd64.iso"
 iso_url        = "https://old-releases.ubuntu.com/releases/24.04/ubuntu-24.04.2-live-server-amd64.iso"
 iso_checksum   = "file:https://old-releases.ubuntu.com/releases/24.04/SHA256SUMS"

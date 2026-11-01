@@ -1,5 +1,6 @@
 # renovate: datasource=custom.alpineLinuxRelease
 name           = "alpine-3.24-template"
+vmid           = "1026"
 iso_file       = "alpine-virt-3.24.3-x86_64.iso"
 iso_url        = "https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-virt-3.24.3-x86_64.iso"
 iso_checksum   = "file:https://dl-cdn.alpinelinux.org/alpine/v3.24/releases/x86_64/alpine-virt-3.24.3-x86_64.iso.sha256"

@@ -1,5 +1,6 @@
 # renovate: datasource=custom.rockyLinuxRelease
 name           = "rocky-9-template"
+vmid           = "1009"
 iso_file       = "Rocky-9.8-x86_64-minimal.iso"
 iso_url        = "https://download.rockylinux.org/pub/rocky/9.8/isos/x86_64/Rocky-9.8-x86_64-minimal.iso"
 iso_checksum   = "file:https://download.rockylinux.org/pub/rocky/9.8/isos/x86_64/CHECKSUM"
