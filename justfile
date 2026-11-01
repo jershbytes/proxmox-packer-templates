@@ -6,6 +6,10 @@ default:
 init:
   packer init config.pkr.hcl
 
+# Test build templates
+test template_id="1006":
+  cd terraform-template-test && terraform init && TF_VAR_template_id={{template_id}} terraform test
+
 # Build Alpine Linux 3.23 Template
 alpine-323:
   packer build -var-file="alpine-3.23.pkrvars.hcl" -only=build.proxmox-iso.vm .
@@ -37,7 +41,3 @@ ubuntu-2404:
 # Build Ubuntu 26 Template
 ubuntu-2604:
   packer build -var-file="ubuntu-26.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
-
-# Test Build Templates
-test template_id="1006":
-  cd terraform-template-test && terraform init && TF_VAR_template_id={{template_id}} terraform test
