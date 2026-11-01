@@ -9,7 +9,7 @@ boot_wait      = "5s"
 boot_command = [
   "c<wait> ",
   "linux /casper/vmlinuz --- autoinstall ds='nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/'",
-  "<enter><wait>",
+  "<enter><wait5>",
   "initrd /casper/initrd",
   "<enter><wait>",
   "boot",
