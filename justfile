@@ -36,7 +36,7 @@ ubuntu-2404:
 
 # Build Ubuntu 26 Template
 ubuntu-2604:
-packer build -var-file="ubuntu-26.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  packer build -var-file="ubuntu-26.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Test Build Templates
 test template_id="1006":
