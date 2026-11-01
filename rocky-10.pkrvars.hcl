@@ -9,7 +9,7 @@ boot_wait      = "5s"
 boot_command = [
     "c<wait> ",
     "linux /images/pxeboot/vmlinuz inst.text inst.ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg",
-    "<enter><wait>",
+    "<enter><wait5>",
     "initrd /images/pxeboot/initrd.img",
     "<enter><wait>",
     "boot",
