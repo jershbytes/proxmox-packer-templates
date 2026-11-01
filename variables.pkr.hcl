@@ -53,7 +53,7 @@ variable "memory" {
 variable "disk_storage_pool" {
   description = "The name of the storage pool on which to store the disks."
   type        = string
-  default     = "local"
+  default     = "zfs-storage"
 }
 
 variable "disk_size" {
@@ -83,7 +83,7 @@ variable "disk_cache" {
 variable "network_adapter" {
   description = "Bridge to which the network device should be attached."
   type        = string
-  default     = "vmbr0"
+  default     = "SRV"
 }
 
 variable "network_adapter_model" {
@@ -230,7 +230,7 @@ variable "cloud_init" {
 variable "cloud_init_storage_pool" {
   description = "Name of the Proxmox storage pool to store the Cloud-Init CDROM on."
   type        = string
-  default     = "local"
+  default     = "zfs-storage"
 }
 
 variable "additional_iso_files" {
