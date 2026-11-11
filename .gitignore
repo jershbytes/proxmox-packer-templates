@@ -8,3 +8,4 @@ packer.exe
 *.auto.pkrvars.hcl
 downloaded_iso_path/
 .infisical.yaml
+downloaded_additional_iso_path_0
