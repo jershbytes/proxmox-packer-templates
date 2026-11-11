@@ -24,8 +24,8 @@
         '/.cfg/',
       ],
       matchStrings: [
-        'datasource=(?<datasource>\\S+)\nname *= "(?<depName>.*?)"\niso_file *= "debian-(?<currentValue>.*?)-amd64-netinst.iso"\niso_url *= "(?<registryUrl>.*/)(.*)/amd64/iso-cd/debian-(.*)-amd64-netinst.iso"\niso_checksum *= "file:.*/amd64/iso-cd/SHA256SUMS"',
-        'datasource=(?<datasource>\\S+)\nname *= "(?<depName>.*?)"\niso_file *= "ubuntu-(?<currentValue>.*?)-.*server-amd64.iso"\niso_url *= "(?<registryUrl>.*/)(.*)/ubuntu-(.*)-.*server-amd64.iso"',
+        'datasource=(?<datasource>\\S+)\nname *= "(?<depName>.*?)"\niso_file *= "debian-(?<currentValue>.*?)-amd64-netinst.iso"\niso_url *= "(?<registryUrl>https://cdimage\\.debian\\.org/mirror/cdimage/archive/)(.*)/amd64/iso-cd/debian-(.*)-amd64-netinst.iso"\niso_checksum *= "file:.*/amd64/iso-cd/SHA256SUMS"',
+        'datasource=(?<datasource>\\S+)\nname *= "(?<depName>.*?)"\niso_file *= "ubuntu-(?<currentValue>.*?)-.*server-amd64.iso"\niso_url *= "(?<registryUrl>https://(?:old-releases|releases)\\.ubuntu\\.com/releases/)(.*)/ubuntu-(.*)-.*server-amd64.iso"',
         'datasource=(?<datasource>\\S+)\nname *= "(?<depName>.*?)"\niso_file *= "alpine-virt-(?<currentValue>.*?)-x86_64.iso"\niso_url *= "(?<registryUrl>.*)/alpine-virt-(.*)-x86_64.iso"\niso_checksum *= "file:.*/alpine-virt-(.*)-x86_64.iso.sha256"',
         'datasource=(?<datasource>\\S+)\nname *= "(?<depName>.*?)"\niso_file *= "Rocky-(?<currentValue>.*?)-x86_64-minimal.iso"\niso_url *= "(?<registryUrl>.*)/(.*)/isos/x86_64/Rocky-(.*)-x86_64-minimal.iso"\niso_checksum *= "file:.*/(.*)/isos/x86_64/CHECKSUM"',
         'datasource=(?<datasource>\\S+) depName=(?<depName>.*?)\nrepo --name="BaseOS" --baseurl=http://download.rockylinux.org/pub/rocky/(?<currentValue>.*?)/BaseOS/x86_64/os/',
