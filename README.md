@@ -17,18 +17,18 @@ First initialize the proxmox packer plugin:
 packer init config.pkr.hcl
 ```
 
-### Prepare your variables
+### Configure Infisical and your variables
 
 The templates all use a generic source builder ([generic.pkr.hcl](./generic.pkr.hcl)) that's driven by variables. The OS specific settings are only variables and preseed files.
 
-To build packer templates you need to set some variables via file (`-var-file=my.pkrvars.hcl`), cli (`-var variablename=value`), or environment (`PKR_VAR_variablename=value`):
+Install the Infisical CLI, authenticate with `infisical login`, and link this directory to your Infisical project with `infisical init`. Add the following secrets to the `dev` environment at `/`. Name them exactly as shown so Packer receives them as input variables:
 
-- proxmox_host
-- proxmox_user
-- proxmox_password
-- proxmox_token
-- node
-- vmid
+- `PKR_VAR_proxmox_host`
+- `PKR_VAR_proxmox_user`
+- `PKR_VAR_node`
+- `PKR_VAR_proxmox_password` or `PKR_VAR_proxmox_token` (depending on your Proxmox authentication method)
+
+The OS-specific `.pkrvars.hcl` files continue to provide each template's non-secret settings. You can override other variables with a `-var-file`, `-var`, or `PKR_VAR_<name>` environment variable as needed.
 
 Other interesting variables are:
 
@@ -47,11 +47,13 @@ See [variables.pkr.hcl](./variables.pkr.hcl) for all varaibles.
 
 ### Build a template
 
-To build a template (e.g. `debian-13`) run:
+Build a template (e.g. `debian-13`) with the corresponding recipe:
 
 ```sh
-packer build -var-file="debian-13.pkrvars.hcl" .
+just debian-13
 ```
+
+The build recipes run Packer through `infisical run --env=dev --path=/`, so the secrets are injected into the Packer process rather than loaded from a local `*.auto.pkrvars.hcl` file.
 
 
 

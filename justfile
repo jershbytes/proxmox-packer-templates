@@ -12,32 +12,36 @@ test template_id="1006":
 
 # Build Alpine Linux 3.23 Template
 alpine-323:
-  packer build -force -var-file="alpine-3.23.pkrvars.hcl" -only=build.proxmox-iso.vm . 
+  infisical run --env=dev --path=/ -- packer build -force -var-file="alpine-3.23.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build Alpine Linux 3.24 Template
 alpine-324:
-  packer build -force -var-file="alpine-3.24.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="alpine-3.24.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build Debian 13 Template
 debian-12:
-  packer build -force -var-file="debian-12.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="debian-12.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build Debian 13 Template
 debian-13:
-  packer build -force -var-file="debian-13.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="debian-13.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build RockyLinux 9 Template
 rocky-9:
-  packer build -force -var-file="rocky-9.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="rocky-9.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build RockyLinux 10 Template
 rocky-10:
-  packer build -force -var-file="rocky-10.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="rocky-10.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build Ubuntu 24 Template
 ubuntu-2404:
-  packer build -force -var-file="ubuntu-24.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="ubuntu-24.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
 
 # Build Ubuntu 26 Template
 ubuntu-2604:
-  packer build -force -var-file="ubuntu-26.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
+  infisical run --env=dev --path=/ -- packer build -force -var-file="ubuntu-26.04.pkrvars.hcl" -only=build.proxmox-iso.vm .
+
+# Build Windows Server 2025 Template
+win2025:
+  infisical run --env=dev --path=/ -- packer build -force -var-file="windows-server-2025.pkrvars.hcl" -only=build.proxmox-iso.vm .
