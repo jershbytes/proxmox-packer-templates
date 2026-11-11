@@ -1,9 +1,9 @@
 # renovate: datasource=custom.alpineLinuxRelease
 name           = "alpine-3.23-template"
 vmid           = "1023"
-iso_file       = "alpine-virt-3.23.7-x86_64.iso"
-iso_url        = "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.7-x86_64.iso"
-iso_checksum   = "file:https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.7-x86_64.iso.sha256"
+iso_file       = "alpine-virt-3.23.8-x86_64.iso"
+iso_url        = "https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.8-x86_64.iso"
+iso_checksum   = "file:https://dl-cdn.alpinelinux.org/alpine/v3.23/releases/x86_64/alpine-virt-3.23.8-x86_64.iso.sha256"
 http_directory = "./http/alpine"
 boot_command = [
   "root<enter><wait>",
