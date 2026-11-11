@@ -13,6 +13,14 @@ variable "proxmox_user" {
 variable "proxmox_password" {
   description = "Password for the Proxmox user."
   type        = string
+  default     = ""
+  sensitive   = true
+}
+
+variable "proxmox_token" {
+  description = "Secret value for the Proxmox API token identified by proxmox_user."
+  type        = string
+  default     = ""
   sensitive   = true
 }
 

@@ -8,7 +8,7 @@ init:
 
 # Test build templates
 test template_id="1006":
-  cd terraform-template-test && terraform init && TF_VAR_template_id={{template_id}} terraform test
+  infisical run --env=dev --path=/ -- sh -c ': "${PKR_VAR_node:?PKR_VAR_node must be set in Infisical}" && cd terraform-template-test && terraform init && TF_VAR_node="$PKR_VAR_node" TF_VAR_proxmox_host="$PKR_VAR_proxmox_host" TF_VAR_proxmox_user="$PKR_VAR_proxmox_user" TF_VAR_proxmox_password="$PKR_VAR_proxmox_password" TF_VAR_proxmox_token="$PKR_VAR_proxmox_token" TF_VAR_template_id={{template_id}} terraform test'
 
 # Build Alpine Linux 3.23 Template
 alpine-323:

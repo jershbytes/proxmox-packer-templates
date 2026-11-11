@@ -55,6 +55,16 @@ just debian-13
 
 The build recipes run Packer through `infisical run --env=dev --path=/`, so the secrets are injected into the Packer process rather than loaded from a local `*.auto.pkrvars.hcl` file.
 
+### Test a template
+
+Run the Terraform-based template test with the template VM ID:
+
+```sh
+just test 1023
+```
+
+The test recipe maps the Infisical `PKR_VAR_node`, `PKR_VAR_proxmox_host`, `PKR_VAR_proxmox_user`, and either `PKR_VAR_proxmox_password` or `PKR_VAR_proxmox_token` secrets to Terraform's `TF_VAR_` variable names. The test clones onto the node named by `PKR_VAR_node`. Terraform automatically loaded `.tfvars` files take precedence over environment variables. The Terraform test provider supports password authentication or an API token; for token authentication, `proxmox_user` must include the token ID (for example, `user@realm!token-name`) and `proxmox_token` must be the token secret.
+
 
 
 ## Template Generalization
