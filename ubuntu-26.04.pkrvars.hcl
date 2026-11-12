@@ -2,7 +2,7 @@
 name           = "ubuntu-26.04-template"
 vmid           = "1025"
 iso_file       = "ubuntu-26.04-live-server-amd64.iso"
-iso_url        = "https://releases.ubuntu.com/releases/26.04/ubuntu-26.04-live-server-amd64.iso"
+iso_url        = "https://releases.ubuntu.com/releases/26.04/ubuntu-26.04.1-live-server-amd64.iso"
 iso_checksum   = "file:https://releases.ubuntu.com/releases/26.04/SHA256SUMS"
 # iso_file       = "ubuntu-26.04.1-live-server-amd64.iso"
 # iso_url        = "https://old-releases.ubuntu.com/releases/26.04/ubuntu-26.04.1-live-server-amd64.iso"
