@@ -1,9 +1,9 @@
 # renovate: datasource=custom.rockyLinuxRelease
 name           = "rocky-10-template"
 vmid           = "1018"
-iso_file       = "Rocky-10.2-x86_64-minimal.iso"
-iso_url        = "https://download.rockylinux.org/pub/rocky/10.2/isos/x86_64/Rocky-10.2-x86_64-minimal.iso"
-iso_checksum   = "file:https://download.rockylinux.org/pub/rocky/10.2/isos/x86_64/CHECKSUM"
+iso_file       = "Rocky-10.3-x86_64-minimal.iso"
+iso_url        = "https://download.rockylinux.org/pub/rocky/10.3/isos/x86_64/Rocky-10.3-x86_64-minimal.iso"
+iso_checksum   = "file:https://download.rockylinux.org/pub/rocky/10.3/isos/x86_64/CHECKSUM"
 http_directory = "./http/rocky-10"
 boot_wait      = "5s"
 boot_command = [
